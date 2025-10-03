@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-crawl-and-scrape",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n custom node to crawl and scrape website",
   "keywords": [
     "n8n-community-node-package",
@@ -33,7 +33,13 @@
     "lintfix": "eslint nodes package.json --fix",
     "prepublishOnly": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes package.json"
   },
-  "files": ["dist", "nodes", "package.json", "LICENSE", "README.md"],
+  "files": [
+    "dist",
+    "nodes",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [],
@@ -47,6 +53,7 @@
     "eslint-plugin-n8n-nodes-base": "^1.16.1",
     "gulp": "^4.0.2",
     "prettier": "^3.3.2",
+    "rimraf": "^6.0.1",
     "typescript": "^5.5.3"
   },
   "peerDependencies": {
