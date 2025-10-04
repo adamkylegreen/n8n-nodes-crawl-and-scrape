@@ -145,18 +145,18 @@ export class CrawleeNode implements INodeType {
 						useSessionPool: false,
 						maxConcurrency: 1,
 						maxRequestsPerCrawl: 1,
+
 						async requestHandler({ request, $, log }) {
 							log.debug(`Extracting text from ${request.url}`);
 
 							const text = $('body').text().trim();
-							const truncatedText = text.length > 50000 ? text.substring(0, 50000) + '...' : text;
 							returnData.push({
 								json: {
 									status: 'success',
 									message: 'Text extraction finished',
 									data: {
 										url: originalUrl,
-										text: truncatedText,
+										text,
 									},
 								},
 							});
@@ -172,17 +172,18 @@ export class CrawleeNode implements INodeType {
 						useSessionPool: false,
 						maxConcurrency: 1,
 						maxRequestsPerCrawl: 1,
+
+
 						async requestHandler({ request, body, log }) {
 							log.debug(`Extracting HTML from ${request.url}`);
 
-							const truncatedHtml = body.length > 100000 ? body.substring(0, 100000) + '...' : body;
 							returnData.push({
 								json: {
 									status: 'success',
 									message: 'HTML extraction finished',
 									data: {
 										url: originalUrl,
-										html: truncatedHtml,
+										html: body,
 									},
 								},
 							});
